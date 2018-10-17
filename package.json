@@ -1,0 +1,55 @@
+{
+	"name": "file-to-npm-cache",
+	"version": "0.1.0",
+	"description": "Store a file in the npm cache directory",
+	"repository": "shinnn/file-to-npm-cache",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"license": "ISC",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "nyc node test.js"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"npm",
+		"pack",
+		"archive",
+		"tar",
+		"gzip",
+		"tgz",
+		"compress",
+		"cache",
+		"cacache",
+		"promise",
+		"stream",
+		"package",
+		"integrity",
+		"secure",
+		"async"
+	],
+	"dependencies": {
+		"inspect-with-kind": "^1.0.5",
+		"is-plain-obj": "^1.1.0",
+		"npcache": "^1.0.0",
+		"pump": "^3.0.0",
+		"tar": "^4.4.6"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config": "^6.7.3",
+		"eslint": "^5.7.0",
+		"npm-cache-path": "^2.0.0",
+		"nyc": "^13.1.0",
+		"nyc-config-common": "^1.0.1",
+		"restore-npm-cache": "^0.1.0",
+		"rmfr": "^2.0.0",
+		"tape": "^4.9.1"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn"
+	},
+	"nyc": {
+		"extends": "nyc-config-common"
+	}
+}

@@ -1,0 +1,12 @@
+branches:
+  except: /^v\d/
+language: node_js
+node_js: node
+matrix:
+  include:
+  - env:
+    - COVERALLS_SERVICE_NAME=travis-pro
+    - secure: Eq15h6Eby6one0d26uVayL1C+R/7bkMD9+qJ7YwTcoXCMyXw8l6+WlroiZfGwoPODf/352Uhf2U0V4PIo+i2Y/vmELIodp3UUlsSAnRJl91sNUG/tE0euAXNItpBxhkZaWoCllcIepOExhjv1/z+yCIG65eLKt0pzUGfvtwUC8t+Hu6oVeRH3ZNymN2B4tasu27SHINO18QGfZF/sJEe3bgdyDLSOxZzzD0sSh4u1ZW56sQLf5xnuw4D5wpSM2wwo1CIv4qyaxwRzkhaPnSXJfkM6FOb7xMF+mPZ/Mb5n/xzEJHIJHjf0St7vGUvEvdB2RamkdYHi2aFkW49TYMCLRpXSiakYl8SJrFbPnF7x6RU+M7Qw5h01Nf9jqRtc7c1C/nIsL+2W9g9HKx997kfYnSYC4XBb/SByw0/1v2G48XTOBYofHPZLWpVlzvcMHCdbsdqk+ZXjNZwNZJHCP5zbs7AeVqIsRzvoFY+P0xXz/XuMZAYpPNi9hPSIdhsIWL+VTecQHwYbB1cuJPYrdStykie5Mn70Tvqw2/xm6vMlLUWmeZrLFbRvGgCe06KaOdHU9IHh6YtE8hId0gEFnMvgMqxCTiIQY0mmWneblmddJknT29moFPMUiMgcd5a4isPWqHeMYnHC0X7F5IIX/M253UKDdU0l4hDNxiOSeRozEY=
+    after_script: node_modules/.bin/nyc report | npx coveralls
+  - os: windows
+    script: node test.js
