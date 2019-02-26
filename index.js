@@ -82,8 +82,9 @@ module.exports = async function fileToNpmCache(...args) {
 	const {dir, base} = parse(absolutePath);
 	const tarStream = create({
 		cwd: dir,
-		strict: true,
-		gzip: true
+		noDirRecurse: true,
+		statCache: new Map([[absolutePath, stat]]),
+		strict: true
 	}, [base]);
 
 	await promisifiedPump(tarStream, putStream);
